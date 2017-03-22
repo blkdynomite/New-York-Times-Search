@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="utf-8">
+ <title>Stop: It's Giphy time</title>
+</head>
+
+<body>
+
+<div id="search-result">
+</div>
+
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+ <script type="text/javascript">
+// New Yourk times.
+var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+url += '?' + $.param({
+    'api-key': "3e896279d4634a68bb0d36e007116b08",
+})
+
+
+$.ajax({
+ url: url,
+ method: 'GET',
+}).done(function(result) {
+ console.log(result);
+ console.log(result.response);
+}).fail(function(err) {
+ throw err;
+
+
+var search = 'response.data.q';
+
+var filter = 'response.data.fq';
+
+var begin_date = 'response.data.begin_date';
+
+var end_date = 'response.data.end_date';
+
+var searchresult = $("<div id='search-result");
+searchresult.prepend(filter);
+searchresult.prepend(begin_date);
+seachresult.prepend(docs);
+
+
+});
+</script></body></html>
